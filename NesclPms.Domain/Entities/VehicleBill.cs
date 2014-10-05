@@ -10,8 +10,11 @@ namespace NesclPms.Domain.Entities
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public long Date { get; set; }
+        public DateTime Date { get; set; }
+        public decimal Amount { get; set; }
         public string Comments { get; set; }
-
+        public bool IsPrepared { get; set; }
+        public bool IsVerified { get; set; }
+        public bool IsPassed { get; set; }
     }
 }

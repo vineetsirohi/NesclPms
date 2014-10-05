@@ -1,0 +1,18 @@
+﻿@using NesclPms.Domain.Entities;
+@model IEnumerable<VehicleBill>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+@foreach (var p in Model)
+{
+    <div>
+        <h3>@p.Name</h3>
+        @p.Date
+        <h4>@p.Amount.ToString("c")</h4>
+    </div>
+}
+
