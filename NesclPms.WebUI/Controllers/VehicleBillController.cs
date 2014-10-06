@@ -21,5 +21,10 @@ namespace NesclPms.WebUI.Controllers
         {
             return View(repository.VehicleBills);
         }
+
+        //public ViewResult Create()
+        //{
+
+        //}
     }
 }
