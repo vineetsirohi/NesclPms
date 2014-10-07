@@ -12,6 +12,11 @@ namespace NesclPms.Domain.Concrete
     {
         private EFDbContext context = new EFDbContext();
 
+        public EFDbContext Context
+        {
+            get{return context;}
+        }
+
         public IEnumerable<VehicleBill> VehicleBills
         {
             get { return context.VehicleBills; }

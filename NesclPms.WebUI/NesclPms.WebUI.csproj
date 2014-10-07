@@ -178,7 +178,7 @@
     <Compile Include="Controllers\DemoModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\VehicleBillController.cs" />
+    <Compile Include="Controllers\VehicleBillsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -248,12 +248,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\VehicleBill\List.cshtml" />
     <Content Include="Views\DemoModels\Create.cshtml" />
     <Content Include="Views\DemoModels\Delete.cshtml" />
     <Content Include="Views\DemoModels\Details.cshtml" />
     <Content Include="Views\DemoModels\Edit.cshtml" />
     <Content Include="Views\DemoModels\Index.cshtml" />
+    <Content Include="Views\VehicleBills\Create.cshtml" />
+    <Content Include="Views\VehicleBills\Delete.cshtml" />
+    <Content Include="Views\VehicleBills\Details.cshtml" />
+    <Content Include="Views\VehicleBills\Edit.cshtml" />
+    <Content Include="Views\VehicleBills\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Currency.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
