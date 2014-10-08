@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace NesclPms.WebUI.Controllers
 {
+    [Authorize(Roles="admin")]
     public class AdminController : Controller
     {
         public ActionResult Index()

@@ -13,6 +13,7 @@ using NesclPms.Domain.Abstract;
 
 namespace NesclPms.WebUI.Controllers
 {
+    [Authorize]
     public class VehicleBillsController : Controller
     {
         private IEntitiesRepository repository;
@@ -48,6 +49,7 @@ namespace NesclPms.WebUI.Controllers
         }
 
         // GET: VehicleBills/Create
+        [Authorize(Roles="site_engg")]
         public ActionResult Create()
         {
             return View();
@@ -71,6 +73,7 @@ namespace NesclPms.WebUI.Controllers
         }
 
         // GET: VehicleBills/Edit/5
+        [Authorize(Roles = "site_engg,srm,finance")]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
