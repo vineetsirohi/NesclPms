@@ -8,5 +8,6 @@ namespace NesclPms.WebUI.Models
 {
     public class AppUser : IdentityUser
     {
+        public string LabelName { get; set; }
     }
 }

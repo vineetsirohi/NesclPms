@@ -14,7 +14,7 @@ using NesclPms.Domain.Abstract;
 namespace NesclPms.WebUI.Controllers
 {
     [Authorize]
-    public class VehicleBillsController : Controller
+    public class VehicleBillsController : ApplicationController
     {
         private IEntitiesRepository repository;
 

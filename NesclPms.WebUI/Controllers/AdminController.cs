@@ -9,10 +9,11 @@ using NesclPms.WebUI.Models;
 using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
 
+
 namespace NesclPms.WebUI.Controllers
 {
     [Authorize(Roles="admin")]
-    public class AdminController : Controller
+    public class AdminController : ApplicationController
     {
         public ActionResult Index()
         {
@@ -27,14 +28,15 @@ namespace NesclPms.WebUI.Controllers
             }
         }
 
-         public ActionResult Create() {
+        public ActionResult Create() {
+            
             return View();
         }
  
         [HttpPost]
         public async Task<ActionResult> Create(CreateModel model) {
             if (ModelState.IsValid) {
-                AppUser user = new AppUser {UserName = model.Name, Email = model.Email};
+                AppUser user = new AppUser {UserName = model.Name, Email = model.Email, LabelName = model.LabelName};
                 IdentityResult result = await UserManager.CreateAsync(user,
                     model.Password);
                 if (result.Succeeded)

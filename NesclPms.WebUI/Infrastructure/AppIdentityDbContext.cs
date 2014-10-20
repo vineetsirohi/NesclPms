@@ -26,42 +26,42 @@ namespace NesclPms.WebUI.Infrastructure
     }
 
     public class IdentityDbInit
-           : DropCreateDatabaseIfModelChanges<AppIdentityDbContext>
+           : NullDatabaseInitializer<AppIdentityDbContext>
     {
 
-        protected override void Seed(AppIdentityDbContext context)
-        {
-            PerformInitialSetup(context);
-            base.Seed(context);
-        }
+        //protected override void Seed(AppIdentityDbContext context)
+        //{
+        //    PerformInitialSetup(context);
+        //    base.Seed(context);
+        //}
 
-        public void PerformInitialSetup(AppIdentityDbContext context)
-        {
-            // initial configuration will go here
-            AppUserManager userMgr = new AppUserManager(new UserStore<AppUser>(context));
-            AppRoleManager roleMgr = new AppRoleManager(new RoleStore<AppRole>(context));
+        //public void PerformInitialSetup(AppIdentityDbContext context)
+        //{
+        //    // initial configuration will go here
+        //    AppUserManager userMgr = new AppUserManager(new UserStore<AppUser>(context));
+        //    AppRoleManager roleMgr = new AppRoleManager(new RoleStore<AppRole>(context));
 
-            string roleName = "admin";
-            string userName = "Admin";
-            string password = "vinsir";
-            string email = "vineetsirohi01@gmail.com";
+        //    string roleName = "admin";
+        //    string userName = "Admin";
+        //    string password = "vinsir";
+        //    string email = "vineetsirohi01@gmail.com";
 
-            if (!roleMgr.RoleExists(roleName))
-            {
-                roleMgr.Create(new AppRole(roleName));
-            }
+        //    if (!roleMgr.RoleExists(roleName))
+        //    {
+        //        roleMgr.Create(new AppRole(roleName));
+        //    }
 
-            AppUser user = userMgr.FindByName(userName);
-            if (user == null)
-            {
-                userMgr.Create(new AppUser { UserName = userName, Email = email },
-                    password);
-                user = userMgr.FindByName(userName);
-            }
-            if (!userMgr.IsInRole(user.Id, roleName))
-            {
-                userMgr.AddToRole(user.Id, roleName);
-            }
-        }
+        //    AppUser user = userMgr.FindByName(userName);
+        //    if (user == null)
+        //    {
+        //        userMgr.Create(new AppUser { UserName = userName, Email = email },
+        //            password);
+        //        user = userMgr.FindByName(userName);
+        //    }
+        //    if (!userMgr.IsInRole(user.Id, roleName))
+        //    {
+        //        userMgr.AddToRole(user.Id, roleName);
+        //    }
+        //}
     }
 }

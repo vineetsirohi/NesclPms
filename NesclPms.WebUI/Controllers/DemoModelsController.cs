@@ -12,7 +12,7 @@ using NesclPms.Domain.Entities;
 
 namespace NesclPms.WebUI.Controllers
 {
-    public class DemoModelsController : Controller
+    public class DemoModelsController : ApplicationController
     {
         private EFDbContext db = new EFDbContext();
 

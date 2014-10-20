@@ -13,7 +13,7 @@ using System.Web.Mvc;
 namespace NesclPms.WebUI.Controllers
 {
     [Authorize(Roles="admin")]
-    public class RoleAdminController : Controller
+    public class RoleAdminController : ApplicationController
     {
         public ActionResult Index()
         {
