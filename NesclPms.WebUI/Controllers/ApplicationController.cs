@@ -17,28 +17,32 @@ namespace NesclPms.WebUI.Controllers
     {
         public ApplicationController()
         {
-            
+
         }
 
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             base.Initialize(requestContext);
-            if (User != null)
-            {
-                ViewData["userdetails"] = LabelName(User.Identity.GetUserId());
-            }
+            ViewData["userdetails"] = LabelName();
         }
 
-        public String LabelName(string id)
+        public String LabelName()
         {
-            AppUser user = UserManager.FindById(id);
-            if (user != null)
+            if (CurrentUser != null)
             {
-                return user.LabelName;
+                return CurrentUser.LabelName;
             }
             else
             {
-                return "User";
+                return HttpContext.User.Identity.Name;
+            }
+        }
+
+        private AppUser CurrentUser
+        {
+            get
+            {
+                return UserManager.FindByName(HttpContext.User.Identity.Name);
             }
         }
 
