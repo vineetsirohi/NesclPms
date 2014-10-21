@@ -19,12 +19,12 @@ namespace NesclPms.WebUI.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl = "/Home/Index")
         {
-            ViewBag.returnUrl = returnUrl;
+            
             if (HttpContext.User.Identity.IsAuthenticated)
             {
                 return View("Error", new String[] { "Access Denied" });
             }
-            
+            ViewBag.returnUrl = returnUrl;
             return View();
         }
 
