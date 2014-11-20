@@ -30,6 +30,10 @@ namespace NesclPms.WebUI.Controllers
         {
             if (CurrentUser != null)
             {
+                if(String.IsNullOrEmpty(CurrentUser.LabelName))
+                {
+                    return HttpContext.User.Identity.Name;
+                }
                 return CurrentUser.LabelName;
             }
             else
