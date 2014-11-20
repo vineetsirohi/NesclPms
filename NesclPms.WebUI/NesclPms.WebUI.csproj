@@ -179,6 +179,7 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\DemoModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\VehicleBillsController.cs" />
     <Compile Include="Global.asax.cs">
