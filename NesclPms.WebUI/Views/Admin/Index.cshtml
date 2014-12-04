@@ -4,7 +4,12 @@
     ViewBag.Title = "Index";
 }
 
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active">@Html.ActionLink("Users", "Index", "Admin", null, null)</li>
+    <li role="presentation">@Html.ActionLink("Roles", "Index", "RoleAdmin", null, null)</li>
+</ul>
 <br/>
+
 <div class="panel panel-primary">
     <div class="panel-heading">
         User Accounts
@@ -41,3 +46,7 @@
     </table>
 </div>
 @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })
+
+<br/>
+<br/>
+

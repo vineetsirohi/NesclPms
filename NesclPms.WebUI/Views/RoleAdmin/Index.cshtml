@@ -4,6 +4,13 @@
 @model IEnumerable<AppRole>
 
 @{ ViewBag.Title = "Roles"; }
+
+<ul class="nav nav-tabs">
+    <li role="presentation">@Html.ActionLink("Users", "Index", "Admin", null, null)</li>
+    <li role="presentation" class="active">@Html.ActionLink("Roles", "Index", "RoleAdmin", null, null)</li>
+</ul>
+<br />
+
 <div class="panel panel-primary">
     <div class="panel-heading">Roles</div>
     <table class="table table-striped">
