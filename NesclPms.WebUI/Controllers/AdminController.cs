@@ -83,28 +83,28 @@ namespace NesclPms.WebUI.Controllers
         }
  
         [HttpPost]
-        public async Task<ActionResult> Edit(string id, string email, string password) {
+        public async Task<ActionResult> Edit(string id, string labelName, string email) {
             AppUser user = await UserManager.FindByIdAsync(id);
             if (user != null) {
+                user.LabelName = labelName;
                 user.Email = email;
                 IdentityResult validEmail
                     = await UserManager.UserValidator.ValidateAsync(user);
                 if (!validEmail.Succeeded) {
                     AddErrorsFromResult(validEmail);
                 }
-                IdentityResult validPass = null;
-                if (password != string.Empty) {
-                    validPass
-                        = await UserManager.PasswordValidator.ValidateAsync(password);
-                    if (validPass.Succeeded) {
-                        user.PasswordHash =
-                            UserManager.PasswordHasher.HashPassword(password);
-                    } else {
-                        AddErrorsFromResult(validPass);
-                    }
-                }
-                if ((validEmail.Succeeded && validPass == null) || ( validEmail.Succeeded
-                        && password != string.Empty && validPass.Succeeded)) {
+                //IdentityResult validPass = null;
+                //if (password != null && password != string.Empty) {
+                //    validPass
+                //        = await UserManager.PasswordValidator.ValidateAsync(password);
+                //    if (validPass.Succeeded) {
+                //        user.PasswordHash =
+                //            UserManager.PasswordHasher.HashPassword(password);
+                //    } else {
+                //        AddErrorsFromResult(validPass);
+                //    }
+                //}
+                if (validEmail.Succeeded) {
                     IdentityResult result = await UserManager.UpdateAsync(user);
                     if (result.Succeeded) {
                         return RedirectToAction("Index");

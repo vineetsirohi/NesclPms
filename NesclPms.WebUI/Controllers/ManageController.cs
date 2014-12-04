@@ -14,7 +14,7 @@ using NesclPms.WebUI.Controllers;
 namespace WebApplication2.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : ApplicationController
     {
         public ManageController()
         {
@@ -44,6 +44,7 @@ namespace WebApplication2.Controllers
         {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                : message == ManageMessageId.ChangeLabelSuccess ? "Your name has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
                 : message == ManageMessageId.Error ? "An error has occurred."
@@ -209,7 +210,8 @@ namespace WebApplication2.Controllers
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()
         {
-            return View();
+                            return View();
+                        
         }
 
         //
@@ -235,6 +237,51 @@ namespace WebApplication2.Controllers
             AddErrors(result);
             return View(model);
         }
+
+
+
+        //
+        // GET: /Manage/ChangeLabel
+        public async Task<ActionResult> ChangeLabel()
+        {
+            AppUser user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user != null)
+            {
+                ChangeLabelViewModel ChangeLabelViewModel = new ChangeLabelViewModel
+                {
+                    Label = user.LabelName
+                };
+                return View(ChangeLabelViewModel);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        //
+        // POST: /Manage/ChangeLabel
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ChangeLabel(ChangeLabelViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user != null)
+            {
+                user.LabelName = model.Label;
+                await UserManager.UpdateAsync(user);
+                return RedirectToAction("Index", new { Message = ManageMessageId.ChangeLabelSuccess });
+            }
+                                        
+            return View(model);
+        }
+
+
 
         //
         // GET: /Manage/SetPassword
@@ -364,6 +411,7 @@ namespace WebApplication2.Controllers
         {
             AddPhoneSuccess,
             ChangePasswordSuccess,
+            ChangeLabelSuccess,
             SetTwoFactorSuccess,
             SetPasswordSuccess,
             RemoveLoginSuccess,

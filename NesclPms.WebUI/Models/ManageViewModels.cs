@@ -58,6 +58,12 @@ namespace NesclPms.WebUI.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class ChangeLabelViewModel
+    {
+        [Display(Name = "Name")]
+        public string Label { get; set; }
+    }
+
     public class AddPhoneNumberViewModel
     {
         [Required]

@@ -1,1 +1,2 @@
+enable editing of user name both by admin and user
 client side validation of data entered in View pages

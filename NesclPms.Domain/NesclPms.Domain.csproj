@@ -79,6 +79,7 @@
     <Compile Include="Concrete\EFEntitiesRepository.cs" />
     <Compile Include="Entities\DemoModel.cs" />
     <Compile Include="Entities\VehicleBill.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
