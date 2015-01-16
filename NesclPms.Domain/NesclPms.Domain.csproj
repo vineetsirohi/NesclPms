@@ -77,6 +77,8 @@
     <Compile Include="Abstract\IEntitiesRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFEntitiesRepository.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\Agency.cs" />
     <Compile Include="Entities\DemoModel.cs" />
     <Compile Include="Entities\LOA.cs" />
     <Compile Include="Entities\VehicleBill.cs" />

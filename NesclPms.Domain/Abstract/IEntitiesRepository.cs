@@ -10,7 +10,7 @@ namespace NesclPms.Domain.Abstract
 {
     public interface IEntitiesRepository
     {
-        EFDbContext Context { get; }
+        EfDbContext Context { get; }
         IEnumerable<VehicleBill> VehicleBills { get; }
     }
 }

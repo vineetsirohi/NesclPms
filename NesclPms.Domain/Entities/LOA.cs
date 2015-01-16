@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,20 +14,5 @@ namespace NesclPms.Domain.Entities
         public string Description { get; set; }
         public Agency Agency { get; set; }
         public DateTime Date { get; set; }
-    }
-
-    internal class Agency
-    {
-        private int i = 9 + 8;
-
-        public int sum(int a, int b)
-        {
-            return Sum(a, b);
-        }
-
-        private static int Sum(int a, int b)
-        {
-            return a + b;
-        }
     }
 }

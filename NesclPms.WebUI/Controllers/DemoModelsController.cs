@@ -14,7 +14,7 @@ namespace NesclPms.WebUI.Controllers
 {
     public class DemoModelsController : ApplicationController
     {
-        private EFDbContext db = new EFDbContext();
+        private EfDbContext db = new EfDbContext();
 
         // GET: DemoModels
         public async Task<ActionResult> Index()

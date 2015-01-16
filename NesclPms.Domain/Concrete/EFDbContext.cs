@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NesclPms.Domain.Concrete
 {
-    public class EFDbContext : DbContext
+    public class EfDbContext : DbContext
     {
         public DbSet<VehicleBill> VehicleBills { get; set; }
 

@@ -10,9 +10,9 @@ namespace NesclPms.Domain.Concrete
 {
     public class EFEntitiesRepository : IEntitiesRepository
     {
-        private EFDbContext context = new EFDbContext();
+        private EfDbContext context = new EfDbContext();
 
-        public EFDbContext Context
+        public EfDbContext Context
         {
             get{return context;}
         }

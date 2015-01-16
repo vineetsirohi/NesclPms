@@ -18,7 +18,7 @@ namespace NesclPms.WebUI.Controllers
     {
         private IEntitiesRepository repository;
 
-        private EFDbContext db; // = new EFDbContext();
+        private EfDbContext db; // = new EFDbContext();
 
         public VehicleBillsController(IEntitiesRepository repo)
         {

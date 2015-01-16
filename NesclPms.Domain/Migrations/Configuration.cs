@@ -5,14 +5,14 @@ namespace NesclPms.Domain.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<NesclPms.Domain.Concrete.EFDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<NesclPms.Domain.Concrete.EfDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(NesclPms.Domain.Concrete.EFDbContext context)
+        protected override void Seed(NesclPms.Domain.Concrete.EfDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
