@@ -11,8 +11,9 @@ namespace NesclPms.WebUI.Infrastructure
 {
     public class AppIdentityDbContext : IdentityDbContext<AppUser>
     {
-
-        public AppIdentityDbContext() : base("IdentityDb") { }
+        public AppIdentityDbContext() : base("IdentityDb")
+        {
+        }
 
         static AppIdentityDbContext()
         {
@@ -25,9 +26,9 @@ namespace NesclPms.WebUI.Infrastructure
         }
     }
 
-    public class IdentityDbInit           : DropCreateDatabaseIfModelChanges<AppIdentityDbContext>
+    public class IdentityDbInit : DropCreateDatabaseIfModelChanges<AppIdentityDbContext>
     {
-        
+
         protected override void Seed(AppIdentityDbContext context)
         {
             PerformInitialSetup(context);
@@ -53,7 +54,7 @@ namespace NesclPms.WebUI.Infrastructure
             AppUser user = userMgr.FindByName(userName);
             if (user == null)
             {
-                userMgr.Create(new AppUser { UserName = userName, Email = email },
+                userMgr.Create(new AppUser {UserName = userName, Email = email},
                     password);
                 user = userMgr.FindByName(userName);
             }

@@ -9,7 +9,7 @@ namespace NesclPms.Domain.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(NesclPms.Domain.Concrete.EfDbContext context)

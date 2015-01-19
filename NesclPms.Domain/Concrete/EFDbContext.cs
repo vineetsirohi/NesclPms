@@ -11,7 +11,7 @@ namespace NesclPms.Domain.Concrete
     public class EfDbContext : DbContext
     {
         public DbSet<VehicleBill> VehicleBills { get; set; }
-
         public DbSet<DemoModel> DemoModels { get; set; }
+        public DbSet<Agency> Agencies { get; set; }
     }
 }

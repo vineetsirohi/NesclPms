@@ -75,12 +75,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IEntitiesRepository.cs" />
-    <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Concrete\EfDbContext.cs" />
     <Compile Include="Concrete\EFEntitiesRepository.cs" />
-    <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Agency.cs" />
     <Compile Include="Entities\DemoModel.cs" />
     <Compile Include="Entities\LOA.cs" />
+    <Compile Include="Entities\LoaAmendment.cs" />
+    <Compile Include="Entities\LoaDetail.cs" />
     <Compile Include="Entities\VehicleBill.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
