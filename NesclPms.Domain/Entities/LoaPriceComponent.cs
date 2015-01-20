@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NesclPms.Domain.Entities
 {
-    public class LoaAmendment
+    public class LoaPriceComponent
     {
         [ScaffoldColumn(false)]
         public int ID { get; set; }
@@ -20,10 +20,7 @@ namespace NesclPms.Domain.Entities
         public string Name { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime Date { get; set; }
+        public decimal Price { get; set; }
 
-        public virtual LoaPackage LoaPackage { get; set; }
     }
 }

@@ -12,107 +12,112 @@ using NesclPms.Domain.Entities;
 
 namespace NesclPms.WebUI.Controllers
 {
-    public class AgenciesController : Controller
+    public class LoaPackagesController : Controller
     {
         private EfDbContext db = new EfDbContext();
 
-        // GET: Agencies
+        // GET: LoaPackages
         public async Task<ActionResult> Index()
         {
-            return View(await db.Agencies.ToListAsync());
+            var loaPackages = db.LoaPackages.Include(l => l.Agency);
+            return View(await loaPackages.ToListAsync());
         }
 
-        // GET: Agencies/Details/5
+        // GET: LoaPackages/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Agency agency = await db.Agencies.FindAsync(id);
-            if (agency == null)
+            LoaPackage loaPackage = await db.LoaPackages.FindAsync(id);
+            if (loaPackage == null)
             {
                 return HttpNotFound();
             }
-            return View(agency);
+            return View(loaPackage);
         }
 
-        // GET: Agencies/Create
+        // GET: LoaPackages/Create
         public ActionResult Create()
         {
+            ViewBag.AgencyId = new SelectList(db.Agencies, "ID", "Name");
             return View();
         }
 
-        // POST: Agencies/Create
+        // POST: LoaPackages/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,AddressLine1,AddressLine2,City,State,Country,Pin")] Agency agency)
+        public async Task<ActionResult> Create([Bind(Include = "ID,No,Description,Date,AgencyId")] LoaPackage loaPackage)
         {
             if (ModelState.IsValid)
             {
-                db.Agencies.Add(agency);
+                db.LoaPackages.Add(loaPackage);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(agency);
+            ViewBag.AgencyId = new SelectList(db.Agencies, "ID", "Name", loaPackage.AgencyId);
+            return View(loaPackage);
         }
 
-        // GET: Agencies/Edit/5
+        // GET: LoaPackages/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Agency agency = await db.Agencies.FindAsync(id);
-            if (agency == null)
+            LoaPackage loaPackage = await db.LoaPackages.FindAsync(id);
+            if (loaPackage == null)
             {
                 return HttpNotFound();
             }
-            return View(agency);
+            ViewBag.AgencyId = new SelectList(db.Agencies, "ID", "Name", loaPackage.AgencyId);
+            return View(loaPackage);
         }
 
-        // POST: Agencies/Edit/5
+        // POST: LoaPackages/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,AddressLine1,AddressLine2,City,State,Country,Pin")] Agency agency)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,No,Description,Date,AgencyId")] LoaPackage loaPackage)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(agency).State = EntityState.Modified;
+                db.Entry(loaPackage).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(agency);
+            ViewBag.AgencyId = new SelectList(db.Agencies, "ID", "Name", loaPackage.AgencyId);
+            return View(loaPackage);
         }
 
-        // GET: Agencies/Delete/5
+        // GET: LoaPackages/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Agency agency = await db.Agencies.FindAsync(id);
-            if (agency == null)
+            LoaPackage loaPackage = await db.LoaPackages.FindAsync(id);
+            if (loaPackage == null)
             {
                 return HttpNotFound();
             }
-            return View(agency);
+            return View(loaPackage);
         }
 
-        // POST: Agencies/Delete/5
+        // POST: LoaPackages/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Agency agency = await db.Agencies.FindAsync(id);
-            db.Agencies.Remove(agency);
+            LoaPackage loaPackage = await db.LoaPackages.FindAsync(id);
+            db.LoaPackages.Remove(loaPackage);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

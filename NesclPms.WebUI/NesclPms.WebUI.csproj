@@ -180,6 +180,9 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\DemoModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoaAmendmentsController.cs" />
+    <Compile Include="Controllers\LoaPackagesController.cs" />
+    <Compile Include="Controllers\LoaPriceComponentsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\VehicleBillsController.cs" />
@@ -262,16 +265,26 @@
     <Content Include="Views\RoleAdmin\Create.cshtml" />
     <Content Include="Views\RoleAdmin\Edit.cshtml" />
     <Content Include="Views\Manage\ChangeLabel.cshtml" />
-    <Content Include="Views\Addresses\Create.cshtml" />
-    <Content Include="Views\Addresses\Delete.cshtml" />
-    <Content Include="Views\Addresses\Details.cshtml" />
-    <Content Include="Views\Addresses\Edit.cshtml" />
-    <Content Include="Views\Addresses\Index.cshtml" />
     <Content Include="Views\Agencies\Create.cshtml" />
     <Content Include="Views\Agencies\Delete.cshtml" />
     <Content Include="Views\Agencies\Details.cshtml" />
     <Content Include="Views\Agencies\Edit.cshtml" />
     <Content Include="Views\Agencies\Index.cshtml" />
+    <Content Include="Views\LoaPriceComponents\Create.cshtml" />
+    <Content Include="Views\LoaPriceComponents\Delete.cshtml" />
+    <Content Include="Views\LoaPriceComponents\Details.cshtml" />
+    <Content Include="Views\LoaPriceComponents\Edit.cshtml" />
+    <Content Include="Views\LoaPriceComponents\Index.cshtml" />
+    <Content Include="Views\LoaPackages\Create.cshtml" />
+    <Content Include="Views\LoaPackages\Delete.cshtml" />
+    <Content Include="Views\LoaPackages\Details.cshtml" />
+    <Content Include="Views\LoaPackages\Edit.cshtml" />
+    <Content Include="Views\LoaPackages\Index.cshtml" />
+    <Content Include="Views\LoaAmendments\Create.cshtml" />
+    <Content Include="Views\LoaAmendments\Delete.cshtml" />
+    <Content Include="Views\LoaAmendments\Details.cshtml" />
+    <Content Include="Views\LoaAmendments\Edit.cshtml" />
+    <Content Include="Views\LoaAmendments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

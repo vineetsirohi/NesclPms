@@ -12,6 +12,10 @@ namespace NesclPms.Domain.Concrete
     {
         public DbSet<VehicleBill> VehicleBills { get; set; }
         public DbSet<DemoModel> DemoModels { get; set; }
+        
         public DbSet<Agency> Agencies { get; set; }
+        public DbSet<LoaAmendment> LoaAmendments { get; set; }
+        public DbSet<LoaPackage> LoaPackages { get; set; }
+        public DbSet<LoaPriceComponent> LoaPriceComponents { get; set; }
     }
 }
