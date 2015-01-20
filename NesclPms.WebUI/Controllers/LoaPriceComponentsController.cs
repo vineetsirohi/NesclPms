@@ -1,6 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using NesclPms.Domain.Concrete;
 using NesclPms.Domain.Entities;
@@ -14,7 +19,8 @@ namespace NesclPms.WebUI.Controllers
         // GET: LoaPriceComponents
         public async Task<ActionResult> Index()
         {
-            return View(await db.LoaPriceComponents.ToListAsync());
+            var loaPriceComponents = db.LoaPriceComponents.Include(l => l.LoaPackage);
+            return View(await loaPriceComponents.ToListAsync());
         }
 
         // GET: LoaPriceComponents/Details/5
@@ -35,6 +41,7 @@ namespace NesclPms.WebUI.Controllers
         // GET: LoaPriceComponents/Create
         public ActionResult Create()
         {
+            ViewBag.LoaPackageId = new SelectList(db.LoaPackages, "ID", "No");
             return View();
         }
 
@@ -52,6 +59,7 @@ namespace NesclPms.WebUI.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.LoaPackageId = new SelectList(db.LoaPackages, "ID", "No", loaPriceComponent.LoaPackageId);
             return View(loaPriceComponent);
         }
 
@@ -67,6 +75,7 @@ namespace NesclPms.WebUI.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.LoaPackageId = new SelectList(db.LoaPackages, "ID", "No", loaPriceComponent.LoaPackageId);
             return View(loaPriceComponent);
         }
 
@@ -83,6 +92,7 @@ namespace NesclPms.WebUI.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.LoaPackageId = new SelectList(db.LoaPackages, "ID", "No", loaPriceComponent.LoaPackageId);
             return View(loaPriceComponent);
         }
 
